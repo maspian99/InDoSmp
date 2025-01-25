@@ -224,11 +224,11 @@ body {
   text-align: center;
 }
 
-.claim-step-box img {
-    width: 100%;
-    height: 50%;
-    object-fit: cover;
-    border-radius: var(--roundness);
+.claim-land-section img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .claim-text {
