@@ -40,10 +40,6 @@ body {
     padding-top:5rem;
     margin-top: -5rem;
 }
-#claim {
-    padding-top:5rem;
-    margin-top: -5rem;
-}
 
 
 .banner {
@@ -224,11 +220,11 @@ body {
   text-align: center;
 }
 
-.claim-land-section img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  margin-bottom: 10px;
+.claim-step-box img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: var(--roundness);
 }
 
 .claim-text {
@@ -793,4 +789,26 @@ body {
     }
 }
 
-    
+.hamburger-menu .dropdown-menu ul li a {
+  color: white; /* Mengubah warna tulisan jadi putih */
+  text-decoration: none; /* Menghapus garis bawah di link */
+}
+
+.hamburger-menu .dropdown-menu ul li a:hover {
+  color: #ddd; /* Warna saat hover (opsional) */
+}
+
+.hamburger-menu .dropdown-menu ul {
+  list-style-type: none; /* Menghilangkan lingkaran di depan tulisan */
+  padding-left: 0; /* Menghilangkan padding kiri */
+}
+
+footer.copyright_div {
+  background-color: black; /* Background hitam untuk footer */
+  color: white; /* Warna teks putih */
+  width: 100%; /* Lebar footer 100% */
+  padding: 20px 0; /* Padding atas dan bawah, sesuaikan dengan kebutuhan */
+  text-align: center; /* Rata tengah teks */
+}
+
+        
