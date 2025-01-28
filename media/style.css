@@ -789,18 +789,45 @@ body {
     }
 }
 
-.hamburger-menu .dropdown-menu ul li a {
-  color: white; /* Mengubah warna tulisan jadi putih */
-  text-decoration: none; /* Menghapus garis bawah di link */
+/* Footer */
+.footer {
+  background-color: black;
+  padding: 20px;
 }
 
-.hamburger-menu .dropdown-menu ul li a:hover {
-  color: #ddd; /* Warna saat hover (opsional) */
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Logo dan menu berjajar ke bawah */
+  align-items: flex-start; /* Rata kiri */
+  gap: 10px; /* Jarak antara logo dan menu */
 }
 
-.hamburger-menu .dropdown-menu ul {
-  list-style-type: none; /* Menghilangkan lingkaran di depan tulisan */
-  padding-left: 0; /* Menghilangkan padding kiri */
+.footer-logo {
+  height: 80px; /* Ukuran logo */
+  width: auto; /* Proporsional */
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-menu ul {
+  margin-top: 20px; /* Jarak di atas menu */
+  padding: 0; /* Hilangkan padding */
+  list-style-type: none; /* Hilangkan bullets */
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 0; /* Jarak antar item menu */
+  font-size: 16px;
+}
+
+.footer-menu a:hover {
+  color: #ddd;
 }
 
 footer.copyright_div {
