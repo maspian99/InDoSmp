@@ -1,0 +1,14 @@
+{
+  "name": "minecraft-payment-backend",
+  "version": "1.0.0",
+  "description": "Backend untuk pembayaran Minecraft",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "midtrans-client": "^1.3.0",
+    "cors": "^2.8.5"
+  }
+}
