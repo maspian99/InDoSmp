@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran Rank Minecraft</title>
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-pqd9vSHIIzrthMel"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('image/bg.png') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(8px);
+      padding: 20px;
+    }
+    .payment-container {
+      max-width: 400px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      margin: auto;
+      border-radius: 12px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      cursor: not-allowed;
+    }
+    button.active {
+      cursor: pointer;
+      background-color: #218838;
+    }
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #28a745;
+      text-align: center;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h2>Pembayaran Rank Minecraft</h2>
+    <label for="rank">Pilih Rank:</label>
+    <select id="rank">
+      <option value="">Pilih Rank</option>
+      <option value="VIP">VIP - Rp10.000</option>
+      <option value="MVP">MVP - Rp25.000</option>
+      <option value="Legend">Legend - Rp50.000</option>
+    </select><label for="nickname">Nickname Minecraft:</label>
+<input type="text" id="nickname" placeholder="Masukkan nickname">
+
+<button id="payBtn">Bayar Sekarang</button>
+
+<div id="successMessage" class="success-message">
+  Pembayaran Berhasil!
+</div>
+
+  </div>  <script>
+    const payBtn = document.getElementById('payBtn');
+    const nicknameInput = document.getElementById('nickname');
+    const rankSelect = document.getElementById('rank');
+    const successMessage = document.getElementById('successMessage');
+
+    // Mengaktifkan tombol setelah semua input diisi
+    function validateForm() {
+      if (nicknameInput.value && rankSelect.value) {
+        payBtn.classList.add('active');
+        payBtn.disabled = false;
+      } else {
+        payBtn.classList.remove('active');
+        payBtn.disabled = true;
+      }
+    }
+
+    nicknameInput.addEventListener('input', validateForm);
+    rankSelect.addEventListener('change', validateForm);
+
+    // Proses pembayaran dengan Midtrans Snap
+    payBtn.addEventListener('click', () => {
+      if (payBtn.classList.contains('active')) {
+        fetch('https://indosmp.my.id/charge', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            nickname: nicknameInput.value,
+            rank: rankSelect.value
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.snap.pay(data.token, {
+            onSuccess: function (result) {
+              successMessage.style.display = 'block';
+              window.open(`https://wa.me/6281234567890?text=Halo, saya sudah membayar untuk nickname ${nicknameInput.value} dengan rank ${rankSelect.value}.`, '_blank');
+            },
+            onPending: function () {
+              alert('Menunggu pembayaran diselesaikan...');
+            },
+            onError: function () {
+              alert('Terjadi kesalahan saat memproses pembayaran.');
+            }
+          });
+        });
+      }
+    });
+  </script></body>
+</html>
